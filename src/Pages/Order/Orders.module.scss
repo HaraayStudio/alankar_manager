@@ -1,0 +1,202 @@
+.dashboardContainer {
+  background: #f7fafc;
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 #00000012;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.topRow {
+  display: flex;
+  gap: 1.5rem;
+  align-items: stretch;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.statsBox {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.7rem 2.5rem 1.7rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  justify-content: flex-start;
+  box-shadow: 0 2px 14px 0 #d9e7f650;
+  .statsLabel {
+    color: #2a2a2a;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .statsDate {
+    font-size: 0.98rem;
+    color: #7b849c;
+    margin-bottom: 10px;
+  }
+  .statsMain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .statsTotal {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #16191f;
+      letter-spacing: 1px;
+    }
+    .statsDelta {
+      background: #d4f7d8;
+      color: #1da85b;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 2px 11px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      .upArrow {
+        font-size: 1.08em;
+        margin-right: 1.5px;
+      }
+    }
+  }
+}
+
+.chartBox {
+  flex: 1 1 340px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.3rem 1.5rem 1.1rem 1.5rem;
+  min-width: 280px;
+  box-shadow: 0 2px 14px 0 #d9e7f650;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .chartHeader {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 8px;
+    .dropdownBtn {
+      border: none;
+      background: #f2f4f9;
+      color: #222d4a;
+      border-radius: 9px;
+      padding: 3px 16px;
+      font-size: 0.97rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      &:hover {
+        background: #e3ebfc;
+      }
+    }
+  }
+  .chartBody {
+    height: 120px;
+    min-width: 0;
+  }
+}
+
+.cardsRow {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  flex: 1 1 0px;
+  min-width: 180px;
+  max-width: 320px;
+  box-shadow: 0 2px 14px 0 #d9e7f650;
+  padding: 1.4rem 1.4rem 1.1rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  .cardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.11rem;
+    font-weight: 600;
+    color: #25273a;
+    .statsDelta {
+      background: #d4f7d8;
+      color: #1da85b;
+      border-radius: 11px;
+      padding: 2.5px 9px;
+      font-size: 0.99rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      .upArrow {
+        font-size: 1.02em;
+        margin-right: 1px;
+      }
+    }
+  }
+  .cardMain {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #13131a;
+    margin-bottom: 2px;
+  }
+  .cardSub {
+    color: #74788c;
+    font-size: 1.04rem;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+  .progressBarWrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 0.98rem;
+    .progressBar {
+      flex: 1 1 40px;
+      height: 8px;
+      background: #e5eaf6;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 0 6px;
+      .progressBarFill {
+        height: 100%;
+        background: linear-gradient(90deg, #29b950, #5be09c);
+        border-radius: 5px;
+        transition: width 0.5s cubic-bezier(.42,0,.58,1);
+      }
+    }
+    .progressPercent {
+      font-size: 0.96rem;
+      color: #24be64;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboardContainer {
+    padding: 1rem 0.3rem;
+  }
+  .card,
+  .statsBox,
+  .chartBox {
+    padding: 1rem 0.7rem;
+  }
+}

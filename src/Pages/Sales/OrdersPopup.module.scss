@@ -1,0 +1,299 @@
+// .overlay {
+//   position: fixed;
+//   inset: 0;
+//   background: rgba(26,34,60,0.14);
+//   z-index: 2000;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .popup {
+//   background: #fff;
+//   border-radius: 18px;
+//   box-shadow: 0 16px 54px #0b183333, 0 2px 14px #36447216;
+//   width: 97vw;
+//   max-width: 1100px;
+//   max-height: 96vh;
+//   overflow-y: auto;
+//   padding: 46px 42px 36px 42px;
+//   position: relative;
+//   animation: popupIn .18s;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: stretch;
+// }
+
+// @keyframes popupIn {
+//   from { transform: translateY(36px) scale(0.98); opacity: 0.6; }
+//   to   { transform: none; opacity: 1; }
+// }
+
+// .closeBtn {
+//   position: absolute;
+//   right: 30px;
+//   top: 26px;
+//   background: none;
+//   border: none;
+//   font-size: 2.1rem;
+//   color: #6d7aad;
+//   cursor: pointer;
+//   opacity: 0.85;
+//   z-index: 10;
+//   transition: opacity .16s;
+//   &:hover { opacity: 1; }
+// }
+
+// .heading {
+//   font-size: 1.45rem;
+//   color: #1c376e;
+//   font-weight: 700;
+//   margin-bottom: 22px;
+//   letter-spacing: .01em;
+//   text-align: left;
+// }
+
+// .tableWrap {
+//   overflow-x: auto;
+//   margin-bottom: 32px;
+//   background: #f5f8fb;
+//   border-radius: 13px;
+//   padding: 12px 8px;
+//   box-shadow: 0 1px 10px #eaf3ff30;
+// }
+
+// .table {
+//   width: 100%;
+//   border-collapse: separate;
+//   border-spacing: 0;
+//   background: #f5f8fb;
+//   font-size: 1.07rem;
+//   th, td {
+//     padding: 13px 14px;
+//     text-align: left;
+//     border-bottom: 1.2px solid #e0e7f2;
+//     font-weight: 500;
+//   }
+//   th {
+//     background: #f2f6fc;
+//     color: #226ad2;
+//     font-weight: 700;
+//     font-size: 1.01rem;
+//     letter-spacing: 0.01em;
+//     border-top: 2px solid #e0e7f2;
+//     border-bottom: 2px solid #e0e7f2;
+//     position: sticky;
+//     top: 0;
+//     z-index: 1;
+//   }
+//   td {
+//     color: #31456e;
+//     font-weight: 500;
+//     vertical-align: top;
+//     background: #fff;
+//     &:first-child { border-left: none; }
+//     &:last-child { border-right: none; }
+//   }
+//   tr:last-child td {
+//     border-bottom: none;
+//   }
+// }
+
+// .stepItem {
+//   display: block;
+//   margin-bottom: 2px;
+//   color: #3186a7;
+//   font-size: 0.99em;
+// }
+
+// .noData {
+//   text-align: center;
+//   color: #b6bac8;
+//   font-size: 1.09rem;
+//   font-weight: 600;
+//   padding: 20px 0;
+// }
+
+// .addOrderBtn {
+//   margin: 18px auto 4px auto;
+//   display: flex;
+//   align-items: center;
+//   gap: 9px;
+//   padding: 11px 40px;
+//   background: linear-gradient(90deg, #267cf5 0, #11b2e6 100%);
+//   color: #fff;
+//   font-weight: 700;
+//   font-size: 1.11rem;
+//   border: none;
+//   border-radius: 10px;
+//   box-shadow: 0 2px 12px #2288e419;
+//   transition: background .16s, box-shadow .16s;
+//   cursor: pointer;
+//   &:hover {
+//     background: linear-gradient(90deg, #165bcc 0, #11b2e6 100%);
+//     box-shadow: 0 4px 16px #2288e434;
+//   }
+// }
+
+// @media (max-width: 900px) {
+//   .popup {
+//     padding: 30px 7vw 22px 7vw;
+//     max-width: 99vw;
+//   }
+//   .table th, .table td { padding: 11px 6px; font-size: .99rem;}
+// }
+
+// @media (max-width: 650px) {
+//   .popup { padding: 6vw 1vw 6vw 1vw; }
+//   .table th, .table td { padding: 8px 3px; font-size: .95rem;}
+//   .heading { font-size: 1.02rem;}
+// }
+// .stepItem {
+//   margin-bottom: 2px;
+//   color: #3186a7;
+//   font-size: 0.99em;
+// }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,34,60,0.14);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 16px 54px #0b183333, 0 2px 14px #36447216;
+  width: 97vw;
+  max-width: 1100px;
+  max-height: 96vh;
+  overflow-y: auto;
+  padding: 46px 42px 36px 42px;
+  position: relative;
+  animation: popupIn .18s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@keyframes popupIn {
+  from { transform: translateY(36px) scale(0.98); opacity: 0.6; }
+  to   { transform: none; opacity: 1; }
+}
+
+.closeBtn {
+  position: absolute;
+  right: 30px;
+  top: 26px;
+  background: none;
+  border: none;
+  font-size: 2.1rem;
+  color: #6d7aad;
+  cursor: pointer;
+  opacity: 0.85;
+  z-index: 10;
+  transition: opacity .16s;
+  &:hover { opacity: 1; }
+}
+
+.heading {
+  font-size: 1.45rem;
+  color: #1c376e;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: .01em;
+  text-align: left;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin-bottom: 32px;
+  background: #f5f8fb;
+  border-radius: 13px;
+  padding: 12px 8px;
+  box-shadow: 0 1px 10px #eaf3ff30;
+}
+
+// (You may keep your Table component styles here if not using module)
+// Here's a tip for Steps column:
+.stepsCell {
+  min-width: 175px;
+  max-width: 245px;
+  white-space: normal;
+  padding-left: 5px;
+  padding-right: 3px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  font-size: 1em;
+  line-height: 1.45;
+  &:last-child { margin-bottom: 0; }
+}
+
+.stepLabel {
+  font-weight: 700;
+  color: #2570c3;
+  min-width: 95px;
+  display: inline-block;
+  font-size: 0.98em;
+  letter-spacing: 0.01em;
+}
+
+.stepValue {
+  font-weight: 500;
+  color: #1897a8;
+  margin-left: 5px;
+  word-break: break-word;
+  font-size: 0.99em;
+text-wrap: nowrap;
+}
+
+.noData {
+  text-align: center;
+  color: #b6bac8;
+  font-size: 1.09rem;
+  font-weight: 600;
+  padding: 20px 0;
+}
+
+.addOrderBtn {
+  margin: 18px auto 4px auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 40px;
+  background: linear-gradient(90deg, #267cf5 0, #11b2e6 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.11rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #2288e419;
+  transition: background .16s, box-shadow .16s;
+  cursor: pointer;
+  &:hover {
+    background: linear-gradient(90deg, #165bcc 0, #11b2e6 100%);
+    box-shadow: 0 4px 16px #2288e434;
+  }
+}
+
+@media (max-width: 900px) {
+  .popup {
+    padding: 30px 7vw 22px 7vw;
+    max-width: 99vw;
+  }
+  .tableWrap th, .tableWrap td { padding: 11px 6px; font-size: .99rem;}
+}
+
+@media (max-width: 650px) {
+  .popup { padding: 6vw 1vw 6vw 1vw; }
+  .tableWrap th, .tableWrap td { padding: 8px 3px; font-size: .95rem;}
+  .heading { font-size: 1.02rem;}
+}
+

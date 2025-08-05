@@ -1,0 +1,245 @@
+.sidebar {
+  width: 250px;
+  min-width: 210px;
+  // background: #fff;
+  box-shadow: 2px 0 18px 0 #e2e7ef13;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  z-index: 200;
+  max-height: 100vh;
+  position: sticky;
+  top: 0;
+  transition: width 0.2s;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 50%;
+  // height: 44px;
+  object-fit: contain;
+  margin-bottom: 30px; display: flex;
+width: 80.641px;
+flex-direction: column;
+align-items: center;
+gap: 3px;
+}
+
+.sidebarNav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.sidebarItem {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  // padding: 12px 28px 12px 32px;
+
+
+  color: #1E1F20;
+  font-weight: 500;
+border-radius: 30px;
+
+margin-left: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s;
+  position: relative;
+display: flex;
+padding: 8px 10px 8px 12px;
+align-items: center;
+  .sidebarIcon {
+    margin-right: 8px;
+    display: flex;
+    font-size: 1.33em;
+    transition: color 0.15s;
+  }
+
+  .sidebarText {
+    flex: 1;
+    transition: color 0.13s;
+    white-space: nowrap; margin-top: 3px;
+  }
+  &:hover {
+    background: #f0f6ff;
+    color: #2170ec;
+    .sidebarIcon {
+      color: #2170ec;
+    }
+  }
+}
+
+.active {
+background: var(--Colour-1st-Colour, #0584FE);
+  color: #fff !important;
+  .sidebarIcon {
+    color: #ffffff !important;
+svg{
+  width: 25px; margin: auto;
+}
+  }
+  .submenuArrow {
+    color: #fff;
+  }
+}
+
+.iconActive {
+  color: #ffffff;
+  background-color: #006CD3; width: 35px;
+height: 35px; border-radius: 50%; margin: auto;
+display: flex;
+justify-content: center;
+align-content: center;
+}
+
+.submenuArrow {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  transition: transform 0.18s;
+  color: #5e6c83;
+  svg {
+    display: block;
+    transition: transform 0.2s; 
+  }
+}
+.expanded {
+  svg {
+    transform: rotate(90deg);
+  }
+}
+
+.sidebarSubmenu {
+  background: #f9fcff;
+  padding-left: 0px;
+  padding-bottom: 5px;
+  overflow: hidden;
+  border-left: 2px solid #e4eefd;
+  // margin-left: 10px;
+}
+
+.submenuItem {
+  padding: 4px 22px;
+  border-radius: 7px 0 0 7px;
+  font-size: 0.99rem;
+  color: #45609e;
+  font-weight: 500;
+  margin-bottom: 1px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  .sidebarText {
+    margin-left: 8px;
+    font-size: 0.99rem;
+  }
+  &:hover {
+    background: #e8f3ff;
+    color: #2170ec;
+    .submenuDot {
+      background: #2170ec;
+    }
+  }
+  &::before{
+    content: "";
+      width: 2px;
+  background: #d8e9fd;
+  height: 25px;
+  margin: 0 auto; 
+  }
+}
+
+.submenuLineWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 2px;
+  width: 10px;
+  position: relative;
+}
+.submenuLine {
+  // width: 2px;
+  // background: #d8e9fd;
+  // height: 20px;
+  // margin: 0 auto; 
+}
+.submenuDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d8e9fd;
+  margin: 2px auto;
+  // transform: translateY(-10px);
+  transition: background 0.14s; display: none;
+}
+.submenuDot.active {
+  background: #2170ec; 
+  display: block;
+} 
+.submenuItem.active {
+  color: #000000 !important;
+  background: #e6f1ff;
+  .submenuDot {
+    background: #2170ec;
+  }
+}
+
+/* TABLET: icon-only sidebar */
+@media (max-width: 1024px) and (min-width: 720px) {
+  .sidebar {
+    width: 64px;
+    min-width: 64px;
+    align-items: center;
+    padding-top: 14px;
+  }
+  .sidebarHeader {
+    margin-bottom: 4px;
+  }
+  .sidebarItem {
+    justify-content: center;
+    padding: 14px 0;
+    .sidebarText,
+    .submenuArrow {
+      display: none !important;
+    }
+    .sidebarIcon {
+      margin-right: 0;
+    }
+  }
+  .sidebarSubmenu {
+    padding-left: 10px;
+    margin-left: 0;
+    border: none;
+  }
+}
+
+/* MOBILE: hide sidebar, or make it a drawer (for full prod use) */
+@media (max-width: 719px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebarItem.active:hover,
+.sidebarItem.active:focus {
+  background: #0584FE !important;
+  color: #fff !important;
+
+  .sidebarIcon {
+    color: #fff !important;
+  }
+  .submenuArrow {
+    color: #fff !important;
+  }
+}

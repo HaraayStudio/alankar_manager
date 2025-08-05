@@ -1,0 +1,65 @@
+// src/components/EditClientPopup.module.scss
+.popupOverlay {
+  position: fixed;
+  z-index: 500;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupContent {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 1.2rem;
+  min-width: 340px;
+  max-width: 400px;
+  box-shadow: 0 8px 32px #2222;
+  position: relative;
+}
+
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 18px;
+}
+
+.title {
+  font-size: 1.25rem; font-weight: 600;
+}
+
+.closeBtn {
+  background: none; border: none;
+  font-size: 1.8rem; cursor: pointer;
+  color: #888;
+  transition: color .15s;
+  &:hover { color: #E44; }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+// input {
+//   width: 100%; padding: 8px 12px;
+//   font-size: 1rem;
+//   border-radius: 6px;
+//   border: 1px solid #c9c9c9;
+//   margin-top: 3px;
+//   &:focus { border-color: #4970f1; outline: none; }
+// }
+
+.saveBtn {
+  margin-top: 0.7rem;
+  padding: 10px;
+  border-radius: 8px;
+  background: #4970f1;
+  color: #fff; border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  &:disabled { background: #7d97db; }
+}

@@ -1,0 +1,446 @@
+
+
+.mainClientsDiv {
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.popupOverlay {
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  background: rgba(30, 36, 50, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.22s;
+}
+
+/* Main (1st-level) popup (client view) */
+.viewPopup {
+  @extend .popupOverlay;
+  z-index: 1101;
+  // (So it sits above everything else except sub popups)
+  .popupContent {
+    background: #f9fbff;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(34, 46, 103, 0.19);
+    padding: 32px 32px 18px 32px;
+    min-width: 500px;
+    max-width: 94vw;
+    width: 62vw;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    animation: popupIn 0.2s cubic-bezier(.36,1.32,.57,1.01);
+    border: 1.5px solid #d3e0fb;
+  }
+}
+
+/* Sub-popup: e.g., View Orders for a PostSale */
+.subPopup {
+  @extend .popupOverlay;
+  z-index: 1110;
+  background: rgba(30,36,50,0.30); // slightly darker
+  .popupContent {
+    background: #f0f4ff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px 0 rgba(34, 46, 103, 0.18);
+    padding: 26px 26px 14px 26px;
+    min-width: 370px;
+    max-width: 88vw;
+    width: 48vw;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    border: 1.5px solid #b7d0f8;
+    animation: popupInSub 0.19s cubic-bezier(.38,1.22,.55,1.08);
+  }
+}
+
+/* Sub-sub-popup: e.g., Step details (if you ever need) */
+.subSubPopup {
+  @extend .popupOverlay;
+  z-index: 1120;
+  background: rgba(30,36,50,0.40); // even darker
+  .popupContent {
+    background: #e5f0fd;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px 0 rgba(34, 46, 103, 0.15);
+    padding: 19px 19px 10px 19px;
+    min-width: 250px;
+    max-width: 88vw;
+    width: 34vw;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    position: relative;
+    border: 1.2px solid #abc8e8;
+    animation: popupInSubSub 0.17s cubic-bezier(.40,1.18,.54,1.11);
+  }
+}
+
+@keyframes popupIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95);}
+  to { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes popupInSub {
+  from { opacity: 0; transform: translateY(32px) scale(0.94);}
+  to { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes popupInSubSub {
+  from { opacity: 0; transform: translateY(36px) scale(0.92);}
+  to { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* ----------- Popup shared content ----------- */
+
+.popupContent {
+  // BEM sub-classes
+  width: 10vw;
+  max-width: 20vw;
+  .mainContent{
+    width: 100%; 
+    //  background-color: red;
+    justify-content: space-evenly;
+  }
+  .popupHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+    color: #030304;
+    margin-bottom: 10px;
+    .clientName {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .closeBtn {
+      background: transparent;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #174291;
+      margin-left: 14px;
+      transition: color 0.19s;
+      &:hover { color: #d42020; }
+    }
+  }
+  .clientDetailsCard {
+    background: #e7f0ff;
+    border-radius: 15px;
+    padding: 18px 22px;
+    min-height: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    flex-direction: column;
+    h2{color: var(--Colour-Heading, #0B0321);
+font-family: Arial;
+font-size: 20px;
+font-style: normal; margin-left: 20px;
+
+font-weight: 700;
+line-height: 150%; /* 30px */}
+    div{
+      display: flex;
+      flex-direction: row;
+    }
+    .clientAvatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #d7e4fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #3c61a5;
+      margin-top: 2px;
+    }
+    .clientMainInfo, .clientSideInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #174291;
+      margin-right: 22px;
+      b{ margin: auto 0; margin-right: 10px;
+color: var(--Colour-Sub-Heading, #4F5051);
+font-family: Arial;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 24px */
+      }p{
+color: var(--Colour-Heading, #030304);
+font-family: Arial;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 27px */
+      }
+div{
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-evenly;
+  align-content: left;
+  text-align: left;
+}
+
+    }
+    .clientSideInfo { min-width: 200px; }
+    .messageBtn {
+      position: absolute;
+      top: 15px; right: 18px;
+      padding: 6px 24px;
+      border-radius: 20px;
+      border: none;
+      background: #0584FE;
+      color: #fff;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.16s;
+      &:hover { background: #174291; }
+    }
+  }
+  .projectsSection {
+    margin-top: 4px;
+    .sectionTitle {
+      font-size: 17px;
+      font-family: Arial, sans-serif;
+      font-weight: 500;
+      color: #223a6c;
+      margin-bottom: 9px;
+    }
+    .projectsTableWrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .projectsTable {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 9px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      th, td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #eaeaea;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+      }
+      th {
+        background-color: #f0f4ff;
+        font-weight: 600;
+        color: #333;
+      }
+      tbody tr:hover { background-color: #f9fbff; }
+      .projectPhone {
+        color: #2b5cba;
+        font-size: 13px;
+      }
+      details summary {
+        color: #25539c;
+        font-weight: 500;
+        cursor: pointer;
+        padding-left: 2px;
+        font-size: 14px;
+      }
+      details ul {
+        padding-left: 15px;
+        font-size: 13px;
+        color: #495a8f;
+      }
+    }
+    .noData {
+      text-align: center;
+      color: #b0b0b0;
+    }
+  }
+}
+
+/* ========== BUTTONS INSIDE TABLES ========== */
+.table .viewBtn,
+.table .editBtn,
+.table .deleteBtn,
+.popupContent .viewBtn {
+  margin-right: 8px;
+  padding: 7px 18px;
+  border-radius: 30px;
+  border: none;
+  background: #eef5ff;
+  color: #0584FE;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  &:hover {
+    background: #cfe1ff;
+    color: #174291;
+  }
+  &:last-child { margin-right: 0; }
+}
+.table .editBtn {
+  background: #f5f9ff; color: #0584FE;
+  &:hover { background: #ddeaff; color: #144e85; }
+}
+.table .deleteBtn {
+  background: #fff5f5; color: #d42020;
+  &:hover { background: #ffe3e3; color: #911515; }
+}
+.table td:last-child { min-width: 160px; }
+
+/* ========== RESPONSIVENESS ========== */
+@media (max-width: 1200px) {
+  .viewPopup .popupContent   { width: 86vw; min-width: 360px; }
+  .subPopup   .popupContent { width: 64vw; min-width: 270px; }
+  .subSubPopup .popupContent{ width: 41vw; min-width: 180px; }
+}
+@media (max-width: 900px) {
+  .viewPopup .popupContent   { width: 98vw; min-width: unset; padding: 14px 4vw 9px 4vw; }
+  .subPopup   .popupContent  { width: 86vw; min-width: unset; padding: 9px 3vw 8px 3vw; }
+  .subSubPopup .popupContent { width: 68vw; min-width: unset; padding: 6px 3vw 6px 3vw; }
+  .popupContent .clientDetailsCard {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .viewPopup .popupContent   { width: 99vw; padding: 9px 2vw 5px 2vw; }
+  .subPopup   .popupContent  { width: 97vw; padding: 7px 2vw 5px 2vw; }
+  .subSubPopup .popupContent { width: 90vw; padding: 5px 2vw 4px 2vw; }
+}
+.projectsTableWrapper {
+  width: 100%;
+  max-height: 330px; /* Height of the scrollable area, adjust as needed */
+  background: white;
+  border-radius: 9px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+  overflow-x: auto; /* for horizontal scroll if content too wide */
+  margin-bottom: 10px;
+
+  .projectsTable {
+    width: 100%;
+    min-width: 700px; /* optional, for many columns, remove if not needed */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+
+    thead, tbody {
+      display: block;
+      width: 100%;
+    }
+
+    thead {
+      tr {
+        display: flex;
+        width: 100%;
+      }
+      th {
+        flex: 1 1 0;
+        min-width: 120px;
+        padding: 10px 12px;
+        font-weight: 600;
+        color: #333;
+        background-color: #f0f4ff;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        font-size: 15px;
+        border-bottom: 1.5px solid #eaeaea;
+        /* optional, shadow for clarity */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        // text-align: left;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      max-height: 220px;  /* actual scroll area for rows */
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: block;
+      width: 100%;
+
+      tr {
+        display: flex;
+        width: 100%;
+        &:hover { background: #f9fbff; }
+      }
+      td {
+        flex: 1 1 0;
+        min-width: 120px;
+        padding: 10px 12px;
+        font-size: 15px;
+        border-bottom: 1px solid #eaeaea;
+        background: white;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+    .projectPhone {
+      color: #2b5cba;
+      font-size: 13px;
+    }
+    details summary {
+      color: #25539c;
+      font-weight: 500;
+      cursor: pointer;
+      padding-left: 2px;
+      font-size: 14px;
+    }
+    details ul {
+      padding-left: 15px;
+      font-size: 13px;
+      color: #495a8f;
+    }
+    .noData {
+      text-align: center;
+      color: #b0b0b0;
+    }
+  }
+}
+
+/* Responsive: smaller screens, reduce min-width and height */
+@media (max-width: 900px) {
+  .projectsTableWrapper .projectsTable {
+    min-width: 480px;
+    thead th, tbody td {
+      min-width: 100px;
+      font-size: 14px;
+      padding: 8px 8px;
+    }
+  }
+  .projectsTableWrapper {
+    max-height: 230px;
+  }
+}
+@media (max-width: 600px) {
+  .projectsTableWrapper .projectsTable {
+    min-width: 320px;
+    thead th, tbody td {
+      min-width: 60px;
+      font-size: 13px;
+      padding: 7px 4px;
+    }
+  }
+  .projectsTableWrapper {
+    max-height: 140px;
+  }
+}

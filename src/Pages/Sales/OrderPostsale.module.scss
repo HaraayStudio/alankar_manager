@@ -1,0 +1,130 @@
+.page {
+  padding: 28px 26px 38px 26px;
+  background: #f8fbfe;
+  min-height: 80vh;
+}
+.headerRow {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+  .pageTitle {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #174274;
+  }
+}
+.addBtn {
+  background: linear-gradient(90deg, #2591fa 0%, #1061d0 100%);
+  color: #fff; font-size: 1rem; font-weight: 500;
+  padding: 7px 20px; border-radius: 8px;
+  border: none; cursor: pointer;
+  box-shadow: 0 2px 8px #1061d028;
+  display: flex; align-items: center; gap: 8px;
+  transition: background 0.15s;
+  &:hover { background: linear-gradient(90deg, #1061d0 0%, #2591fa 100%); }
+}
+.noData {
+  text-align: center; color: #999; margin-top: 80px; font-size: 1.17rem;
+}
+
+.list {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.orderCard {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px #1570bf17;
+  transition: box-shadow .16s;
+  padding: 0;
+  overflow: hidden;
+  &:hover, &.expanded { box-shadow: 0 4px 32px #2591fa15; }
+}
+.summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; cursor: pointer; transition: background .15s;
+  font-size: 1.11rem; background: #f9fcff;
+  border-bottom: 1px solid #e3eefa;
+  .left { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+  .dot { font-size: 22px; color: #a0bbdc; }
+  .orderType { color: #1563ae; font-weight: 600; }
+  .printType { color: #2a8cc8; }
+  .media { color: #4b718c; }
+  .right { display: flex; align-items: center; gap: 15px; }
+  .qty { color: #296cb0; }
+  .status {
+    border-radius: 6px; padding: 3px 13px;
+    font-size: 0.98rem; font-weight: 600;
+    &.statusCreated { background: #f2f9ff; color: #2392e6; }
+    &.statusCompleted { background: #e6f8ec; color: #1ca95a; }
+    &.statusPending { background: #fff4d6; color: #c78d23; }
+  }
+  .chevron { color: #aaa; }
+}
+.details {
+  background: #fff;
+  padding: 20px 22px 14px 22px;
+  font-size: 1.05rem;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px 34px;
+    margin-bottom: 16px;
+    label {
+      color: #7da5c8;
+      font-size: 0.97rem;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+  }
+}
+.stepsSection {
+  margin-top: 4px; margin-bottom: 8px;
+  .stepsTitle {
+    font-size: 1.01rem;
+    font-weight: 600; color: #1756b1;
+    margin-bottom: 7px;
+  }
+  .stepsList { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stepChip {
+    background: #f2f8ff;
+    color: #205590;
+    border-radius: 7px; padding: 3px 10px;
+    font-size: 0.99rem; font-weight: 500;
+    .stepValue { color: #15509e; font-weight: 400; }
+  }
+}
+.imagesSection {
+  margin-top: 10px;
+  .imagesTitle { color: #1458b3; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .imagesGrid { display: flex; gap: 8px; flex-wrap: wrap; }
+  .imgThumb {
+    width: 65px; height: 65px; object-fit: cover;
+    border-radius: 8px; border: 1px solid #e1e7f0;
+    background: #eaf5fd;
+    transition: box-shadow .16s;
+    box-shadow: 0 1px 8px #116ae010;
+    &:hover { box-shadow: 0 2px 12px #1061d030; }
+  }
+}
+@media (max-width: 700px) {
+  .page { padding: 14px 4vw 24px 4vw; }
+  .headerRow { flex-direction: column; gap: 16px; }
+  .details .grid { grid-template-columns: 1fr; gap: 10px; }
+}
+.editBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  color: #0f172a;
+  padding: 2px 5px;
+  border-radius: 5px;
+  transition: background 0.14s;
+  &:hover {
+    background: #f1f5f9;
+    color: #2563eb;
+  }
+  svg {
+    display: block;
+    pointer-events: none;
+  }
+}

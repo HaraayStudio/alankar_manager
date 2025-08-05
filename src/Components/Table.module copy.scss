@@ -1,0 +1,315 @@
+// // .tableWrapper {
+// //   background: #fff;
+// //   border-radius: 10px;
+// //   overflow: hidden;
+// //   box-shadow: 0 2px 10px 0 rgba(31, 56, 162, 0.06);
+// //   width: 100%;
+// //   //   max-width: 700px;
+// //   margin: 0 auto;  overflow-x: auto;
+// //   // margin-top: 20px;
+// // }
+
+// // .table {
+ 
+// //   width: 100%;
+  
+// //   border-collapse: collapse;
+// //   font-family: inherit;
+// //   font-size: 16px;
+// //   color: #212121;
+// // }
+
+// // th, td {
+// //   padding: 16px 10px;
+// //   text-align: left;
+// //   border: 1px solid rgba(90, 88, 88, 0.116);
+// // }
+
+// // thead {
+// // height: 70px;
+// // align-self: stretch; border-radius: 14px 14px 0px 0px;
+// // background: #EDF3FF;
+// // }
+
+// // th {
+// //  color: var(--Colour-Sub-Heading, #18181B);
+// // text-align: center;
+// // font-family: Arial;
+// // font-size: 15px;
+// // font-style: bold;
+// // font-weight: 500;
+// // // line-height: 150%; /* 27px */
+// // }
+
+// // tbody tr {
+// //   border-bottom: 1px solid #ededed;
+// // }
+
+// // tbody tr:last-child {
+// //   border-bottom: none;
+// // }
+
+// // td {
+// //   color: var(--Colour-Sub-Heading, #18181B);
+// // font-family: Arial;
+// // font-size: 15px; text-align: center;
+// // margin: 0;
+// // font-style: normal;
+// // font-weight: 400;
+// // line-height: 150%; /* 24px */
+// // }
+
+// // @media (max-width: 600px) {
+// //   .table, th, td {
+// //     font-size: 14px;
+// //     padding: 10px 8px;
+// //   }
+// // }
+
+
+// .tableWrapper {
+//   background: #fff;
+//   border-radius: 10px;
+//   overflow: hidden;
+//   box-shadow: 0 2px 10px 0 rgba(31, 56, 162, 0.06);
+//   width: 100%;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .tableContainer {
+//   overflow: hidden;
+// }
+
+// .table {
+//   width: 100%;
+//   border-collapse: collapse;
+//   font-family: inherit;
+//   font-size: 16px;
+//   color: #212121;
+//   table-layout: fixed; /* This ensures consistent column widths */
+// }
+
+// .tableHead {
+//   height: 70px;
+//   align-self: stretch;
+//   border-radius: 14px 14px 0px 0px;
+//   background: #EDF3FF;
+// }
+
+// .tableBodyWrapper {
+//   max-height: 400px; /* Adjust this value to control how many rows are visible */
+//   overflow-y: auto;
+//   overflow-x: hidden;
+// }
+
+// /* Custom scrollbar styling */
+// .tableBodyWrapper::-webkit-scrollbar {
+//   width: 6px;
+// }
+
+// .tableBodyWrapper::-webkit-scrollbar-track {
+//   background: #f1f1f1;
+//   border-radius: 3px;
+// }
+
+// .tableBodyWrapper::-webkit-scrollbar-thumb {
+//   background: #c1c1c1;
+//   border-radius: 3px;
+// }
+
+// .tableBodyWrapper::-webkit-scrollbar-thumb:hover {
+//   background: #a8a8a8;
+// }
+
+// .tableCell {
+//   padding: 16px 10px;
+//   text-align: center;
+//   border: 1px solid rgba(90, 88, 88, 0.116);
+//   word-wrap: break-word;
+//   overflow: hidden;
+// }
+
+// th.tableCell {
+//   color: var(--Colour-Sub-Heading, #18181B);
+//   font-family: Arial;
+//   font-size: 15px;
+//   font-weight: 500;
+//   background: #EDF3FF;
+//   position: sticky;
+//   top: 0;
+//   z-index: 10;
+// }
+
+// td.tableCell {
+//   color: var(--Colour-Sub-Heading, #18181B);
+//   font-family: Arial;
+//   font-size: 15px;
+//   font-weight: 400;
+//   line-height: 150%; /* 24px */
+// }
+
+// .noDataCell {
+//   text-align: center !important;
+//   padding: 20px;
+//   font-style: italic;
+//   color: #666;
+// }
+
+// tbody tr {
+//   border-bottom: 1px solid #ededed;
+// }
+
+// tbody tr:last-child {
+//   border-bottom: none;
+// }
+
+// tbody tr:hover {
+//   background-color: #f8f9fa;
+// }
+
+// @media (max-width: 600px) {
+//   .table, .tableCell {
+//     font-size: 14px;
+//     padding: 10px 8px;
+//   }
+  
+//   .tableBodyWrapper {
+//     max-height: 300px; /* Smaller height on mobile */
+//   }
+// }
+
+.tableWrapper {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px 0 rgba(31, 56, 162, 0.06);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.hiddenTable {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  visibility: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  font-size: 16px;
+  color: #212121;
+  table-layout: auto; /* Let it calculate natural widths */
+}
+
+.tableContainer {
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  font-size: 16px;
+  color: #212121;
+  table-layout: fixed; /* Use fixed layout with calculated widths */
+}
+
+.tableHead {
+  height: 70px;
+  align-self: stretch;
+  border-radius: 14px 14px 0px 0px;
+  background: #EDF3FF;
+}
+
+.tableBodyWrapper {
+  max-height: 500px; /* Adjust this value to control how many rows are visible */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+.tableBodyWrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tableBodyWrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.tableBodyWrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.tableBodyWrapper::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.tableCell {
+  padding: 16px 10px;
+  text-align: center;
+  border: 1px solid rgba(90, 88, 88, 0.116);
+  word-wrap: break-word;
+  overflow: hidden;
+  white-space: nowrap; /* Prevent text wrapping for width calculation */
+}
+
+/* Allow wrapping in the hidden table for natural width calculation */
+.hiddenTable .tableCell {
+  white-space: normal;
+}
+
+th.tableCell {
+  color: var(--Colour-Sub-Heading, #18181B);
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: 500;
+  background: #EDF3FF;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+td.tableCell {
+  color: var(--Colour-Sub-Heading, #18181B);
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.noDataCell {
+  text-align: center !important;
+  padding: 20px;
+  font-style: italic;
+  color: #666;
+  white-space: normal !important;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ededed;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+  .table, .tableCell, .hiddenTable .tableCell {
+    font-size: 14px;
+    padding: 10px 8px;
+  }
+  
+  .tableBodyWrapper {
+    max-height: 300px; /* Smaller height on mobile */
+  }
+}

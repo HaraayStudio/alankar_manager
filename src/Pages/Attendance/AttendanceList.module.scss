@@ -1,0 +1,163 @@
+.attendancePage {
+  padding: 24px;
+  background: #f6f9fd;
+  min-height: 100vh;
+}
+
+.statsRow {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.card {
+  flex: 1;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px #deeaf94a;
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .cardTitle {
+    font-size: 17px;
+    font-weight: 500;
+    color: #8b98a9;
+    margin-bottom: 8px;
+  }
+  .cardValueRow {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    .cardValue {
+      font-size: 34px;
+      font-weight: 700;
+      color: #293141;
+    }
+    .percentUp {
+      display: flex;
+      align-items: center;
+      background: #e7f8ef;
+      color: #41b987;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 10px;
+      margin-left: 8px;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+  .cardDesc {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #90a0b7;
+  }
+}
+
+.tableContainer {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px #deeaf94a;
+  padding: 24px 16px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.pageTitle {
+  font-size: 21px;
+  font-weight: 600;
+  color: #212c3a;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.filterBtn {
+  background: #eef3fa;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  svg {
+    vertical-align: middle;
+  }
+}
+.addBtn {
+  background: #2e90fa;
+  color: #fff;
+  border: none;
+  border-radius: 11px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 12px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f2f2f2;
+  box-shadow: 0 2px 8px #deeaf94a;
+}
+
+.jobSheetLink {
+  display: flex;
+  align-items: center;
+  color: #2e90fa;
+  font-weight: 500;
+  text-decoration: none;
+  gap: 6px;
+  svg {
+    margin-left: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+.statusChip {
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #f7f7fa;
+  &.statusOngoing {
+    background: #e7f8ef;
+    color: #41b987;
+  }
+  &.statusPending {
+    background: #fef7ea;
+    color: #d8a14a;
+  }
+  &.statusCompleted {
+    background: #e7f2fa;
+    color: #2e90fa;
+  }
+}
+
+.actionBtns {
+  display: flex;
+  gap: 8px;
+}
+.iconBtn {
+  background: none;
+  border: none;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.13s;
+  &:hover {
+    background: #eef3fa;
+  }
+}
