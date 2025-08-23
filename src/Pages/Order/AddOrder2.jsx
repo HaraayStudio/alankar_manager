@@ -4,7 +4,7 @@ import { useData } from "../../context/DataContext";
 import ContentStructure from "../../Layout/ContentStructure";
 import PRINT_PRICES from "../../printprices";
 import axios from "axios";
-import { BASE_URL } from "../../api/constants";
+import { BASE_URL } from "../../api/constants.js";
 import SmartDescriptionInput from "../../Components/SmartDescriptionInput";
 
 const links = [
