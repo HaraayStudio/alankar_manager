@@ -250,7 +250,7 @@ export default function UpdateOrderPopup({ orderData, open, onClose, onUpdated }
     <div className={styles.popupOverlay}>
       <div className={styles.popupBox}>
         <button className={styles.closeBtn} onClick={onClose}><X /></button>
-        <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
+        <form className={styles.form}  autoComplete="off">
           <h2 className={styles.heading}>Update Order</h2>
 
           <div className={styles.section}>

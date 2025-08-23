@@ -6,8 +6,9 @@ import { ChevronDown, ChevronRight, User, Package, Calendar, DollarSign, Clock, 
 export default function Dashboard() {
   // Get data from context with safe fallbacks
   const context = useContext(DataContext);
-  const orders = context?.Orders ?? [];
+  const orders = context?.orders ?? [];
   const employees = context?.employees ?? [];
+console.log("orders",orders);
 
   // State for expandable sections
   const [expandedSections, setExpandedSections] = useState({

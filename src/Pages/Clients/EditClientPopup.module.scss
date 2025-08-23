@@ -1,65 +1,411 @@
+// // src/components/EditClientPopup.module.scss
+// .popupOverlay {
+//   position: fixed;
+//   z-index: 500;
+//   left: 0; top: 0; right: 0; bottom: 0;
+//   background: rgba(0,0,0,0.14);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .popupContent {
+//   background: #fff;
+//   padding: 2rem 2.5rem;
+//   border-radius: 1.2rem;
+//   min-width: 340px;
+//   max-width: 400px;
+//   box-shadow: 0 8px 32px #2222;
+//   position: relative;
+// }
+
+// .header {
+//   display: flex; justify-content: space-between; align-items: center;
+//   margin-bottom: 18px;
+// }
+
+// .title {
+//   font-size: 1.25rem; font-weight: 600;
+// }
+
+// .closeBtn {
+//   background: none; border: none;
+//   font-size: 1.8rem; cursor: pointer;
+//   color: #888;
+//   transition: color .15s;
+//   &:hover { color: #E44; }
+// }
+
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.9rem;
+// }
+
+// // input {
+// //   width: 100%; padding: 8px 12px;
+// //   font-size: 1rem;
+// //   border-radius: 6px;
+// //   border: 1px solid #c9c9c9;
+// //   margin-top: 3px;
+// //   &:focus { border-color: #4970f1; outline: none; }
+// // }
+
+// .saveBtn {
+//   margin-top: 0.7rem;
+//   padding: 10px;
+//   border-radius: 8px;
+//   background: #4970f1;
+//   color: #fff; border: none;
+//   font-size: 1rem;
+//   font-weight: 600;
+//   cursor: pointer;
+//   transition: background 0.15s;
+//   &:disabled { background: #7d97db; }
+// }
 // src/components/EditClientPopup.module.scss
+
 .popupOverlay {
   position: fixed;
-  z-index: 500;
-  left: 0; top: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.14);
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+
+  &.closing {
+    animation: fadeOut 0.2s ease-in;
+  }
 }
 
 .popupContent {
-  background: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 1.2rem;
-  min-width: 340px;
-  max-width: 400px;
-  box-shadow: 0 8px 32px #2222;
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   position: relative;
+  animation: slideUp 0.2s ease-out;
+
+  &.closing {
+    animation: slideDown 0.2s ease-in;
+  }
 }
 
 .header {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.titleSection {
+  flex: 1;
 }
 
 .title {
-  font-size: 1.25rem; font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .closeBtn {
-  background: none; border: none;
-  font-size: 1.8rem; cursor: pointer;
-  color: #888;
-  transition: color .15s;
-  &:hover { color: #E44; }
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16px;
+
+  &:hover:not(:disabled) {
+    background: #f1f5f9;
+    color: #374151;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .form {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 20px;
 }
 
-// input {
-//   width: 100%; padding: 8px 12px;
-//   font-size: 1rem;
-//   border-radius: 6px;
-//   border: 1px solid #c9c9c9;
-//   margin-top: 3px;
-//   &:focus { border-color: #4970f1; outline: none; }
-// }
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.4;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  &:disabled {
+    background: #f8fafc;
+    color: #64748b;
+    cursor: not-allowed;
+  }
+
+  &.inputError {
+    border-color: #ef4444;
+    
+    &:focus {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.errorText {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 4px;
+  display: block;
+  line-height: 1.4;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-direction: row-reverse; // Primary button on right
+
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+  }
+}
 
 .saveBtn {
-  margin-top: 0.7rem;
-  padding: 10px;
+  flex: 1;
+  padding: 12px 24px;
   border-radius: 8px;
-  background: #4970f1;
-  color: #fff; border: none;
-  font-size: 1rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s;
-  &:disabled { background: #7d97db; }
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1.5;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.cancelBtn {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #64748b;
+  border: 1.5px solid #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1.5;
+
+  &:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #475569;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive Design
+@media (max-width: 600px) {
+  .popupOverlay {
+    padding: 16px;
+  }
+
+  .popupContent {
+    max-height: 95vh;
+  }
+
+  .header {
+    padding: 20px 20px 16px 20px;
+  }
+
+  .form {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .input, .textarea {
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+  
+  .buttonGroup {
+    flex-direction: column-reverse;
+  }
 }

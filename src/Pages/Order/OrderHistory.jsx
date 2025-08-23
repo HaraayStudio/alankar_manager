@@ -53,8 +53,10 @@ const getPriorityBadge = (priority) => {
 };
 
 export default function OrderHistoryTable() {
-  const { Orders } = useContext(DataContext);
+  const { orders } = useContext(DataContext);
   const [popupOrder, setPopupOrder] = useState(null);
+const Orders = orders;
+console.log(Orders);
 
   // Table columns config (adjusted for your structure)
   const columns = [
@@ -75,13 +77,14 @@ export default function OrderHistoryTable() {
 
   // Table data mapping
 // Table data mapping
+
 const tableData =
   Orders && Orders.length > 0
     ? Orders
         .filter((o) => String(o.status).toUpperCase() === "COMPLETED") // <-- Only COMPLETED orders
         .map((o, i) => ({
           orderId: String(i+1),
-          media: "NO CLIENT",
+          media: o?.client?.name,
           orderType: o.orderType,
           qty: o.qty,
           unitPrice: o.unitPrice,

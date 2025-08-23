@@ -232,9 +232,9 @@ export default function JobSheetPopup({ open, onClose, preSelectedEmployee, onSu
                   ))}
               </select>
             </label>
-            <label>
+            <label  >
               Employee <span>*</span>
-              <select
+              <select 
                 name="employeeId"
                 value={form.employeeId}
                 onChange={handleChange}

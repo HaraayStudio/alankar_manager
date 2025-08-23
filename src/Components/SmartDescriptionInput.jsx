@@ -125,23 +125,15 @@ const SmartDescriptionInput = ({
       const inputRect = inputRef.current.getBoundingClientRect();
       const dropdown = dropdownRef.current;
       
-      // Check if we're in a table (has table cell parent)
-      const isInTable = inputRef.current.closest('td');
-      
-      if (isInTable) {
-        // Position relative to viewport for table context
-        dropdown.style.position = 'fixed';
-        dropdown.style.top = `${inputRect.bottom + 4}px`;
-        dropdown.style.left = `${inputRect.left}px`;
-        dropdown.style.width = `${Math.max(inputRect.width, 300)}px`;
-        dropdown.style.maxWidth = '400px';
-      } else {
-        // Use absolute positioning for normal context
-        dropdown.style.position = 'absolute';
-        dropdown.style.top = '100%';
-        dropdown.style.left = '0';
-        dropdown.style.right = '0';
-      }
+      // Always use fixed positioning in table context to avoid clipping
+      dropdown.style.position = 'fixed';
+      dropdown.style.top = `${inputRect.bottom + 4}px`;
+      dropdown.style.left = `${inputRect.left}px`;
+      dropdown.style.width = `${Math.max(inputRect.width, 350)}px`;
+      dropdown.style.maxWidth = '450px';
+      dropdown.style.zIndex = '10000';
+      dropdown.style.visibility = 'visible';
+      dropdown.style.opacity = '1';
     }
   };
 
@@ -149,7 +141,7 @@ const SmartDescriptionInput = ({
   useEffect(() => {
     if (isDropdownOpen) {
       // Small delay to ensure DOM is updated
-      setTimeout(positionDropdown, 10);
+      const timeoutId = setTimeout(positionDropdown, 10);
       
       // Reposition on scroll/resize
       const handleReposition = () => {
@@ -162,6 +154,7 @@ const SmartDescriptionInput = ({
       window.addEventListener('resize', handleReposition);
       
       return () => {
+        clearTimeout(timeoutId);
         window.removeEventListener('scroll', handleReposition, true);
         window.removeEventListener('resize', handleReposition);
       };
@@ -171,9 +164,12 @@ const SmartDescriptionInput = ({
   // Handle clicking outside to close dropdown
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Prevent dropdown from closing when clicking inside it
+      if (dropdownRef.current && dropdownRef.current.contains(event.target)) {
+        return;
+      }
+      
       if (
-        dropdownRef.current && 
-        !dropdownRef.current.contains(event.target) &&
         inputRef.current && 
         !inputRef.current.contains(event.target)
       ) {
@@ -181,11 +177,17 @@ const SmartDescriptionInput = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+    if (isDropdownOpen) {
+      // Use setTimeout to prevent immediate closing
+      setTimeout(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+      }, 0);
+      
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isDropdownOpen]);
 
   const handleInputFocus = () => {
     setIsDropdownOpen(true);
@@ -199,9 +201,23 @@ const SmartDescriptionInput = ({
   };
 
   const handleSuggestionClick = (suggestion) => {
+    // Prevent event bubbling
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    
     onChange(suggestion);
     setIsDropdownOpen(false);
-    inputRef.current?.focus();
+    
+    // Focus input after a small delay to ensure dropdown is closed
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 10);
+  };
+
+  const handleDropdownToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDropdownOpen(prev => !prev);
   };
 
   const handleKeyDown = (e) => {
@@ -231,10 +247,14 @@ const SmartDescriptionInput = ({
         <button
           type="button"
           className={styles.dropdownToggle}
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          onClick={handleDropdownToggle}
+          onMouseDown={(e) => e.preventDefault()}
           title="Show description suggestions"
+          aria-expanded={isDropdownOpen}
         >
-          ▼
+          <span className={`${styles.dropdownArrow} ${isDropdownOpen ? styles.dropdownArrowUp : ''}`}>
+            ▼
+          </span>
         </button>
       </div>
 
@@ -258,6 +278,15 @@ const SmartDescriptionInput = ({
                   key={index}
                   className={styles.suggestionItem}
                   onClick={() => handleSuggestionClick(suggestion)}
+                  onMouseDown={(e) => e.preventDefault()}
+                  role="option"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleSuggestionClick(suggestion);
+                    }
+                  }}
                 >
                   <span className={styles.suggestionText}>{suggestion}</span>
                 </div>
@@ -274,7 +303,7 @@ const SmartDescriptionInput = ({
 
           {order.orderType && (
             <div className={styles.suggestionsFooter}>
-              <small>💡 Tip: Select more specifications for better suggestions</small>
+              {/* <small>💡 Tip: Select more specifications for better suggestions</small> */}
             </div>
           )}
         </div>

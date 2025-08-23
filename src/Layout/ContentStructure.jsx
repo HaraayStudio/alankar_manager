@@ -6,7 +6,8 @@ export default function ContentStructure({ links, children }) {
   return (
     <div className={styles.wrapper}>
     <div className={styles.header}>
-          <HeaderLinks links={links} />
+   {links && links.length > 0 && <HeaderLinks links={links} />}
+
     </div>
       <div className={styles.mainContent}>
         {children}

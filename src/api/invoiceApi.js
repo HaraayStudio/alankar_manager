@@ -1,28 +1,26 @@
-// src/api/quotationApi.js
-import axios from 'axios';
-import { BASE_URL } from './constants';
-const api = axios.create({
-  baseURL: BASE_URL,
-  headers: { 'Content-Type': 'application/json' },
-  validateStatus: status => status >= 200 && status < 400
-});
-export const createInvoice = (postSaleSrNumber, token) =>
-  api.post(
-    `/invoice/createinvoice?postSaleSrNumber=${postSaleSrNumber}`,
-    null, // No body!
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-export const sendInvoiceMail = (invoiceNumber, token) =>
-  axios.post(
-    `${BASE_URL}/invoice/sendinvoice`,
-    null,
-    {
-      params: { invoiceNumber },
-      headers: { Authorization: `Bearer ${token}` }
-    }
-  );
+// src/api/invoiceApi.js
+import api from './axiosConfig'; // Use centralized config like employeeApi
 
-export const getAllInvoices = (token) =>
-  api.get('/invoice/getallinvoices', {
-    headers: { Authorization: `Bearer ${token}` }
-  });
+// 1. Create GST Invoice
+export const createInvoice = (postSaleSrNumber) =>
+  api.post(`/invoice/createinvoice?postSaleSrNumber=${postSaleSrNumber}`);
+
+// 2. Create NON-GST Invoice  
+export const createNGInvoice = (postSaleSrNumber) =>
+  api.post(`/invoice/createnginvoice?postSaleSrNumber=${postSaleSrNumber}`);
+
+// 3. Get All GST Invoices
+export const getAllInvoices = () =>
+  api.get('/invoice/getallinvoices');
+
+// 4. Get All NON-GST Invoices
+export const getAllNGInvoices = () =>
+  api.get('/invoice/getallnginvoices');
+
+// 5. Send GST Invoice by Mail
+export const sendInvoiceMail = (invoiceNumber) =>
+  api.post(`/invoice/sendinvoice?invoiceNumber=${invoiceNumber}`);
+
+// 6. Send NON-GST Invoice by Mail
+export const sendNGInvoiceMail = (invoiceNumber) =>
+  api.post(`/invoice/sendnginvoice?invoiceNumber=${invoiceNumber}`);

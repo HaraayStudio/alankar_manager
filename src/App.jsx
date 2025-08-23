@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext ,useEffect} from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -19,6 +19,7 @@ import Login from "./Pages/Login/Login.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import Projects from "./Pages/Order/Order.jsx";
 import AddProject from "./Pages/Order/AddOrder.jsx";
+import AddProject2 from "./Pages/Order/AddOrder2.jsx";
 import OngoingProjects from "./Pages/Order/OngoingOrder.jsx";
 import ProjectHistory from "./Pages/Order/OrderHistory.jsx";
 import Clients from "./Pages/Clients/Clients.jsx";
@@ -36,9 +37,12 @@ import SalesDashboard from "./Pages/Sales/SalesDashbaord.jsx";
 import PreSale from "./Pages/Sales/PreSale.jsx";
 import PostSale from "./Pages/Sales/PostSale.jsx";
 import AddPostSales from "./Pages/Sales/AddPostSales.jsx";
+import Jobsheet from "./Pages/Jobsheet/jobsheet.jsx"
 import { Toaster } from "react-hot-toast";
-import JobsheetList from "./Pages/Jobsheet/jobsheet.jsx";
-import AttendanceList from "./Pages/Attendance/Attendance.jsx";
+
+import { useDispatch } from 'react-redux';
+import { fetchInvoices } from './store/slices/invoiceSlice.js';
+
 // PrivateRoute wrapper (optional, if you want route protection)
 const PrivateRoute = ({ children }) => {
   const { authToken } = useContext(DataContext);
@@ -48,6 +52,13 @@ const PrivateRoute = ({ children }) => {
 // All App routes, wrapped in DataContext
 const AppRoutes = () => {
   const { authToken } = useContext(DataContext);
+   const dispatch = useDispatch();
+  const token = sessionStorage.getItem('token');
+ useEffect(() => {
+    if (token) {
+      dispatch(fetchInvoices(token)); // Fetch only once
+    }
+  }, [dispatch, token]);
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -67,7 +78,8 @@ const AppRoutes = () => {
 
         {/* Projects/Orders */}
         <Route path="orders" element={<Projects />} />
-        <Route path="orders/new" element={<AddProject />} />
+        {/* <Route path="orders/new2" element={<AddProject />} /> */}
+        <Route path="orders/new" element={<AddProject2 />} />
         <Route path="orders/ongoing" element={<OngoingProjects />} />
         <Route path="orders/history" element={<ProjectHistory />} />
 
@@ -76,8 +88,6 @@ const AppRoutes = () => {
         <Route path="sales/presale" element={<PreSale />} />
         <Route path="sales/postsale" element={<PostSale />} />
         <Route path="sales/addpostsale" element={<AddPostSales />} />
-        <Route path="jobsheet" element={<JobsheetList />} />
-        <Route path="attendance" element={<AttendanceList />} />
 
         {/* Clients */}
         <Route path="clients" element={<Clients />} />
@@ -95,6 +105,9 @@ const AppRoutes = () => {
         <Route path="employee" element={<Employee />} />
         <Route path="employee/new" element={<AddEmployee />} />
         <Route path="employee/list" element={<AllEmployee />} />
+
+            {/* Jobsheet */}
+        <Route path="jobsheet" element={<Jobsheet />} />
       </Route>
       {/* Fallback Route */}
       <Route
@@ -130,3 +143,4 @@ const App = () => (
 );
 
 export default App;
+ 

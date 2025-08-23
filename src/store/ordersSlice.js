@@ -1,6 +1,6 @@
 // src/store/ordersSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import api from "../api/api";
+import api from "../api/axiosConfig";
 
 // Fetch all orders
 export const fetchOrders = createAsyncThunk(

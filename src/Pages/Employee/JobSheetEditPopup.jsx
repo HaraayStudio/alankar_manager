@@ -369,10 +369,10 @@ export default function JobSheetEditPopup({
     alert("Please fill all required fields.");
     return;
   }
-  if (isEditMode && (!jobSheet || !jobSheet.id)) {
-    alert("Invalid JobSheet data. Cannot update.");
-    return;
-  }
+  // if ( (!jobSheet || !jobSheet.id)) { 
+  //   alert("Invalid JobSheet data. Cannot update.");
+  //   return;
+  // }
   setLoading(true);
 
   try {
@@ -408,11 +408,12 @@ export default function JobSheetEditPopup({
         });
       }
     });
+console.log("jb",jobSheet);
 
     const token = sessionStorage.getItem("token");
     let url, method;
     if (isEditMode) {
-      url = `${BASE_URL}/jobsheet/updateJobSheet/${jobSheet.id}`;
+      url = `${BASE_URL}/jobsheet/updatejobsheet/${jobSheet.srNumber}`;
       method = "put";
     }
 

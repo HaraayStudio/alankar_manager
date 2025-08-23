@@ -22,7 +22,7 @@ const columns = [
   { key: "role", label: "Role" },
   { key: "joinDate", label: "Join Date" },
   { key: "view", label: "View" },
-  // { key: "action", label: "Action" }
+  { key: "action", label: "Action" }
 ];
 
 const AllEmployees = () => {
@@ -121,7 +121,7 @@ const handleEdit = (emp) => {
     role: emp.role,
     joinDate: emp.joinDate,
     view: (
-      <button 
+      <button
         className={styles.viewBtn}
         title="View Details"
         onClick={() => handleView(emp)}
@@ -133,19 +133,19 @@ const handleEdit = (emp) => {
         </svg>
       </button>
     ),
-    // action: (
-    //   <div className={styles.actionButtons}>
-    //     <button onClick={() => handleEdit(emp)}>Edit</button>
-    //     <button
-    //       onClick={() => handleDelete(emp.id)}
-    //       disabled={emp.email === protectedEmail}
-    //       title={emp.email === protectedEmail ? "This user can't be deleted." : "Delete Employee"}
-    //       style={emp.email === protectedEmail ? { opacity: 0.5, cursor: "not-allowed" } : {}}
-    //     >
-    //       Delete
-    //     </button>
-    //   </div>
-    // )
+    action: (
+      <div className={styles.actionButtons}>
+        <button onClick={() => handleEdit(emp)}>Edit</button>
+        <button
+          onClick={() => handleDelete(emp.id)}
+          disabled={emp.email === protectedEmail}
+          title={emp.email === protectedEmail ? "This user can't be deleted." : "Delete Employee"}
+          style={emp.email === protectedEmail ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+        >
+          Delete
+        </button>
+      </div>
+    )
   }));
 
   return (
@@ -243,7 +243,7 @@ const handleEdit = (emp) => {
                     required
                   >
                     <option value="">Select Role</option>
-                    <option value="ADMIN">Admin</option>
+                    {/* <option value="ADMIN">Admin</option> */}
                     <option value="MANAGER">Manager</option>
                     <option value="EMPLOYEE">Employee</option>
                     <option value="GUEST">Guest</option>
@@ -443,7 +443,7 @@ const handleEdit = (emp) => {
                   fontWeight: 600, color: "#1877d2", fontSize: 18, marginBottom: 4
                 }}>All JobSheets</div>
                 <div style={{
-                   background: "#f8faff", borderRadius: 8, boxShadow: "0 1px 7px #eaf3fc",
+                  maxHeight: 185, overflowY: "auto", background: "#f8faff", borderRadius: 8, boxShadow: "0 1px 7px #eaf3fc",
                   marginBottom: 12
                 }}>
                   <table className={styles.table}>
@@ -465,7 +465,7 @@ const handleEdit = (emp) => {
                             <td>{js.date ? new Date(js.date).toLocaleDateString("en-GB") : "--"}</td>
                             <td>{js.contactPerson || "--"}</td>
                             <td>
-                              <button disabled
+                              <button
                                 className={styles.viewBtn}
                                 style={{
                                   padding: "5px 15px", background: "#2e9bf5",
@@ -473,17 +473,17 @@ const handleEdit = (emp) => {
                                   fontWeight: 500, fontSize: 15, cursor: "pointer",
                                   marginRight: 8
                                 }}
-                                // onClick={() => setViewJobSheet(js)}
+                                onClick={() => setViewJobSheet(js)}
                               >
                                 View
                               </button>
-                              <button disabled
+                              <button
                                 style={{
                                   padding: "5px 15px", background: "#ff9500",
                                   color: "#fff", border: "none", borderRadius: 8,
                                   fontWeight: 500, fontSize: 15, cursor: "pointer"
                                 }}
-                                // onClick={() => handleEditJobSheet(js)}
+                                onClick={() => handleEditJobSheet(js)}
                               >
                                 Edit
                               </button>

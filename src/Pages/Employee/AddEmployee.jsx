@@ -46,7 +46,7 @@ const AddEmployee = () => {
         <form
           className={styles.grid}
           onSubmit={handleSubmit}
-          autoComplete="off"
+          autocomplete="off"
         >
           {/* Row 1: Names */}
           <div className={styles.row}>
@@ -128,8 +128,8 @@ const AddEmployee = () => {
           <div className={styles.row}>
             <div className={styles.col}>
               <label htmlFor="password">Password</label>
-              <input
-                autocomplete="off"
+              <input  autoComplete="new-password"
+               
                 type="password"
                 name="password"
                 placeholder="Password"

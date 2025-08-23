@@ -35,9 +35,8 @@ export default function AddClient() {
     try {
       await handleCreateClient(formData);
       console.log(formData);
-
+      
       setMessage("✅ Client created successfully!");
-      // window.location.reload()
       setFormData({ name: "", email: "", phone: "", address: "" });
     } catch (error) {
       setMessage("❌ Failed to create client.");
@@ -128,14 +127,14 @@ export default function AddClient() {
             {loading ? "Saving..." : "Create Client"}
           </button>
         </form>
-        {message && (
+        {/* {message && (
           <div
             className={styles.message}
             style={{ color: message.includes("✅") ? "#14b554" : "#e32a2a" }}
           >
             {message}
           </div>
-        )}
+        )} */}
       </div>
     </ContentStructure>
   );

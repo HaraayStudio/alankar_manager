@@ -851,3 +851,205 @@
   margin-top: 3px;
   text-align: right;
 }
+/* Add these styles to your existing ongoingOrders.module.scss file */
+
+/* Image Preview Modal Styles */
+.imagePreviewOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  animation: imagePreviewFadeIn 0.2s ease-out;
+}
+
+.imagePreviewContent {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePreviewImg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  animation: imagePreviewZoomIn 0.3s ease-out;
+}
+
+.imagePreviewClose {
+  position: absolute;
+  top: -50px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.imageNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.prevBtn {
+    left: -70px;
+  }
+
+  &.nextBtn {
+    right: -70px;
+  }
+}
+
+.imageCounter {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* Update existing image card to show it's clickable */
+.imageCard {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    transition: all 0.2s ease;
+  }
+}
+
+/* Animations */
+@keyframes imagePreviewFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imagePreviewZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile responsiveness for image preview */
+@media (max-width: 768px) {
+  .imagePreviewClose {
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+  }
+
+  .imageNavBtn {
+    &.prevBtn {
+      left: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
+
+    &.nextBtn {
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+    }
+  }
+
+  .imageCounter {
+    bottom: 20px;
+  }
+
+  .imagePreviewContent {
+    padding: 60px 20px 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageNavBtn {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .imagePreviewClose {
+    width: 35px;
+    height: 35px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

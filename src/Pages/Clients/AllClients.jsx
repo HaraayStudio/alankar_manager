@@ -6,6 +6,8 @@ import HeaderLinks from "../../Components/HeaderLinks";
 import EditClientPopup from "./EditClientPopup";
 import Table from "../../Components/Table"; // Adjust if your path differs
 import ContentStructure from "../../Layout/ContentStructure";
+import eye from "../../assets/eye.png"
+import edit from "../../assets/edit.png"
 const links = [
   { to: "/clients/new", label: "Add New Client" },
   { to: "/clients/list", label: "All Clients" },
@@ -27,7 +29,7 @@ export default function ClientsList() {
     { key: "email", label: "Email" },
     { key: "phone", label: "Phone" },
     { key: "address", label: "Address" },
-    { key: "view", label: "View" },
+    // { key: "view", label: "View" },
     { key: "action", label: "Action" }
   ];
   const clientTableData = (clients || []).map((client, idx) => ({
@@ -36,21 +38,25 @@ export default function ClientsList() {
     email: client.email,
     phone: client.phone,
     address: client.address,
-    view: (
+    pan: client.pan,
+    gstcertificate: client.gstcertificate,
+ 
+    action: (
+     <div className={styles.actnbtns}>
       <button
         className={styles.viewBtn}
         onClick={() => setViewClient(client)}
       >
-        View
+       <img src={eye} alt="" />
       </button>
-    ),
-    action: (
+    
       <button
         className={styles.editBtn}
         onClick={() => setEditClient(client)}
       >
-        Edit
-      </button>
+              <img src={edit} alt="" />
+
+      </button>   </div>
     )
   }));
 
@@ -111,6 +117,7 @@ export default function ClientsList() {
       </details>
     )
   }));
+console.log(clients);
 
   return (
    <ContentStructure links={links}> 

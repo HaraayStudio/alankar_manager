@@ -377,3 +377,269 @@ input[type="date"], input[type="datetime-local"] {
     }
   }
 }
+// Add these styles to your AddPostSaleOrder.module.scss file
+
+// Compact Order Card Layout
+.compactOrderCard {
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e1e5e9;
+  border-radius: 8px 8px 0 0;
+}
+
+.orderTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.removeBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: #dc2626;
+  }
+
+  &:disabled {
+    background: #d1d5db;
+    cursor: not-allowed;
+  }
+}
+
+// Row 1: Order Type, Print Type, Steps
+.orderRow1 {
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+// Row 2: Dimensions, Pricing, Status
+.orderRow2 {
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+// Field Groups
+.dimensionsGroup,
+.pricingGroup,
+.statusGroup,
+.imageGroup {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  background: #fafbfc;
+  min-width: 200px;
+  flex: 1;
+}
+
+.stepsContainer {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+// Group Labels
+.groupLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
+}
+
+// Field Layouts
+.dimensionFields,
+.pricingFields,
+.statusFields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+  flex: 1;
+}
+
+.stepField {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  flex: 1;
+}
+
+.fieldLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Compact Form Controls
+.compactSelect,
+.compactInput {
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  background: white;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
+}
+
+.compactInput {
+  min-width: 60px;
+}
+
+.compactFileInput {
+  padding: 4px;
+  font-size: 0.75rem;
+  border: 1px dashed #d1d5db;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+}
+
+// Compact Chips for Print Types
+.compactChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.compactChip {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+
+  &.selected {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+  }
+}
+
+// Image Group Specific
+.imageGroup {
+  min-width: 150px;
+  max-width: 200px;
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .orderRow1 {
+    flex-direction: column;
+  }
+  
+  .stepsContainer {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .orderRow2 {
+    flex-direction: column;
+  }
+
+  .dimensionsGroup,
+  .pricingGroup,
+  .statusGroup,
+  .imageGroup {
+    min-width: 100%;
+  }
+
+  .dimensionFields,
+  .pricingFields,
+  .statusFields {
+    flex-direction: column;
+  }
+
+  .field,
+  .stepField {
+    min-width: 100%;
+  }
+
+  .compactChips {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .orderHeader {
+    padding: 8px 12px;
+  }
+
+  .orderRow1,
+  .orderRow2 {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .dimensionsGroup,
+  .pricingGroup,
+  .statusGroup,
+  .imageGroup {
+    padding: 8px;
+  }
+
+  .orderTitle {
+    font-size: 0.875rem;
+  }
+}

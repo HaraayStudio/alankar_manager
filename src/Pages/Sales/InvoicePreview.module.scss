@@ -1,166 +1,220 @@
+// // .previewBackdrop {
+// //   position: fixed;
+// //   inset: 0;
+// //   width: 100vw;
+// //   height: 100vh;
+// //   background: rgba(20,30,40,0.14);
+// //   z-index: 9999;
+// //   display: flex;
+// //   align-items: center;
+// //   justify-content: center;
+// // }
+// // .previewBox {
+// //   background: #fff;
+// //   border-radius: 18px;
+// //   padding: 28px 34px 18px 34px;
+// //   max-width: 630px;
+// //   min-width: 380px;
+// //   width: 98vw;
+// //   box-shadow: 0 8px 40px 0 rgba(30, 30, 40, 0.20);
+// //   position: relative;
+// //   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+// //   animation: pop .18s cubic-bezier(.42,1.25,.54,1.03);
+// // }
+// // @keyframes pop {
+// //   from { transform: scale(0.97); opacity: 0.5;}
+// //   to { transform: scale(1); opacity: 1;}
+// // }
+// // .closeBtn {
+// //   position: absolute;
+// //   right: 16px;
+// //   top: 16px;
+// //   border: none;
+// //   background: transparent;
+// //   cursor: pointer;
+// //   color: #aaa;
+// //   font-size: 1.2rem;
+// //   &:hover { color: #e1002a; }
+// // }
+// // .headerRow {
+// //   display: flex;
+// //   justify-content: space-between;
+// //   align-items: flex-start;
+// //   margin-bottom: 8px;
+// //   .company {
+// //     display: flex;
+// //     align-items: flex-start;
+// //     gap: 18px;
+// //   }
+// //   .logo {
+// //     height: 60px;
+// //     margin-right: 8px;
+// //   }
+// //   .compName {
+// //     font-size: 1.45rem;
+// //     font-weight: 800;
+// //     color: #2b9ad4;
+// //     letter-spacing: 0.03em;
+// //   }
+// //   .compTagline {
+// //     font-size: 1.01rem;
+// //     color: #1a88bb;
+// //     font-weight: 500;
+// //   }
+// //   .compAddr {
+// //     color: #1074b0;
+// //     font-size: 0.98rem;
+// //   }
+// //   .metaRight {
+// //     text-align: right;
+// //     color: #393939;
+// //     font-size: 1.01rem;
+// //     min-width: 145px;
+// //     line-height: 1.6;
+// //   }
+// // }
+// // .clientRow {
+// //   display: flex;
+// //   justify-content: space-between;
+// //   margin: 12px 0 10px 0;
+// //   font-size: 1.09rem;
+// //   >div:first-child {
+// //     color: #333;
+// //     font-weight: 600;
+// //   }
+// //   >div:last-child {
+// //     font-size: 1.01rem;
+// //     font-weight: 600;
+// //     color: #179ae1;
+// //     text-align: right;
+// //   }
+// // }
+// // .detailsTable {
+// //   width: 100%;
+// //   border-collapse: collapse;
+// //   margin: 14px 0 10px 0;
+// //   th, td { padding: 7px 10px; border: 1px solid #f1f1f1; }
+// //   th {
+// //     background: #f6faff;
+// //     font-size: 1.08rem;
+// //     color: #0090d0;
+// //     font-weight: 700;
+// //   }
+// //   td { font-size: 1.06rem; }
+// //   tfoot td { background: #fafdfe; font-size: 1.06rem; }
+// // }
+// // .rightAlign {
+// //   text-align: right;
+// // }
+// // .bold {
+// //   font-weight: bold;
+// //   color: #1291d0;
+// // }
+// // .descTitle {
+// //   font-weight: 700;
+// //   color: #093970;
+// // }
+// // .descSub {
+// //   color: #363636;
+// //   font-size: 0.99rem;
+// //   margin-top: 4px;
+// // }
+// // .bottomRow {
+// //   display: flex;
+// //   gap: 22px;
+// //   margin: 19px 0 4px 0;
+// //   justify-content: space-between;
+// //   .bankDetails, .tncDetails {
+// //     background: #f6faff;
+// //     border-radius: 8px;
+// //     padding: 12px 16px;
+// //     flex: 1;
+// //     min-width: 200px;
+// //   }
+// //   .sectionTitle {
+// //     font-size: 1.09rem;
+// //     color: #2b9ad4;
+// //     font-weight: 700;
+// //     margin-bottom: 6px;
+// //   }
+// // }
+// // .thankYou {
+// //   text-align: left;
+// //   font-size: 1.45rem;
+// //   color: #2b9ad4;
+// //   font-weight: 800;
+// //   margin-top: 12px;
+// //   margin-bottom: 2px;
+// //   letter-spacing: 0.01em;
+// // }
+// // .footerRow {
+// //   font-size: 1rem;
+// //   text-align: left;
+// //   color: #1291d0;
+// //   border-top: 1px solid #eaeaea;
+// //   padding-top: 8px;
+// //   margin-top: 6px;
+// //   div {
+// //     margin-bottom: 2px;
+// //   }
+// //   b {
+// //     color: #179ae1;
+// //     font-weight: 700;
+// //   }
+// // }
+// // .actionBar {
+// //   display: flex;
+// //   gap: 10px;
+// //   justify-content: flex-end;
+// //   margin-bottom: 12px;
+// // }
+// // .actionBtn {
+// //   background: #f6faff;
+// //   border: 1px solid #e5e7eb;
+// //   color: #179ae1;
+// //   border-radius: 6px;
+// //   font-size: 1rem;
+// //   padding: 7px 16px;
+// //   font-weight: 700;
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 7px;
+// //   cursor: pointer;
+// //   transition: background 0.15s, color 0.15s;
+// //   &:hover {
+// //     background: #1291d0;
+// //     color: #fff;
+// //   }
+// // }
 // .previewBackdrop {
 //   position: fixed;
-//   inset: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   background: rgba(20,30,40,0.14);
-//   z-index: 9999;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+//   left: 0; top: 0; width: 100vw;
+//   background: rgba(36,36,36,0.23); z-index: 9999;
+//   display: flex; 
+//   // align-items: center;
+//    justify-content: center;
+//    overflow-y: auto;
+//   font-family: 'Arial', 'Segoe UI', Arial, sans-serif;
 // }
-// .previewBox {
-//   background: #fff;
-//   border-radius: 18px;
-//   padding: 28px 34px 18px 34px;
-//   max-width: 630px;
-//   min-width: 380px;
-//   width: 98vw;
-//   box-shadow: 0 8px 40px 0 rgba(30, 30, 40, 0.20);
+// .previewBox {  background: #fff;
+//   border-radius: 16px;
+//   padding: 28px 30px 18px 30px;
+//   max-width: 740px;
+//   width: 100%;
+//   min-width: 370px;
+//   box-shadow: 0 6px 38px 0 #2223;
 //   position: relative;
-//   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-//   animation: pop .18s cubic-bezier(.42,1.25,.54,1.03);
+//   animation: pop 0.18s cubic-bezier(.42,1.25,.54,1.03);
 // }
 // @keyframes pop {
-//   from { transform: scale(0.97); opacity: 0.5;}
+//   from { transform: scale(0.95); opacity: 0.5;}
 //   to { transform: scale(1); opacity: 1;}
 // }
 // .closeBtn {
-//   position: absolute;
-//   right: 16px;
-//   top: 16px;
-//   border: none;
-//   background: transparent;
-//   cursor: pointer;
-//   color: #aaa;
-//   font-size: 1.2rem;
-//   &:hover { color: #e1002a; }
-// }
-// .headerRow {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: flex-start;
-//   margin-bottom: 8px;
-//   .company {
-//     display: flex;
-//     align-items: flex-start;
-//     gap: 18px;
-//   }
-//   .logo {
-//     height: 60px;
-//     margin-right: 8px;
-//   }
-//   .compName {
-//     font-size: 1.45rem;
-//     font-weight: 800;
-//     color: #2b9ad4;
-//     letter-spacing: 0.03em;
-//   }
-//   .compTagline {
-//     font-size: 1.01rem;
-//     color: #1a88bb;
-//     font-weight: 500;
-//   }
-//   .compAddr {
-//     color: #1074b0;
-//     font-size: 0.98rem;
-//   }
-//   .metaRight {
-//     text-align: right;
-//     color: #393939;
-//     font-size: 1.01rem;
-//     min-width: 145px;
-//     line-height: 1.6;
-//   }
-// }
-// .clientRow {
-//   display: flex;
-//   justify-content: space-between;
-//   margin: 12px 0 10px 0;
-//   font-size: 1.09rem;
-//   >div:first-child {
-//     color: #333;
-//     font-weight: 600;
-//   }
-//   >div:last-child {
-//     font-size: 1.01rem;
-//     font-weight: 600;
-//     color: #179ae1;
-//     text-align: right;
-//   }
-// }
-// .detailsTable {
-//   width: 100%;
-//   border-collapse: collapse;
-//   margin: 14px 0 10px 0;
-//   th, td { padding: 7px 10px; border: 1px solid #f1f1f1; }
-//   th {
-//     background: #f6faff;
-//     font-size: 1.08rem;
-//     color: #0090d0;
-//     font-weight: 700;
-//   }
-//   td { font-size: 1.06rem; }
-//   tfoot td { background: #fafdfe; font-size: 1.06rem; }
-// }
-// .rightAlign {
-//   text-align: right;
-// }
-// .bold {
-//   font-weight: bold;
-//   color: #1291d0;
-// }
-// .descTitle {
-//   font-weight: 700;
-//   color: #093970;
-// }
-// .descSub {
-//   color: #363636;
-//   font-size: 0.99rem;
-//   margin-top: 4px;
-// }
-// .bottomRow {
-//   display: flex;
-//   gap: 22px;
-//   margin: 19px 0 4px 0;
-//   justify-content: space-between;
-//   .bankDetails, .tncDetails {
-//     background: #f6faff;
-//     border-radius: 8px;
-//     padding: 12px 16px;
-//     flex: 1;
-//     min-width: 200px;
-//   }
-//   .sectionTitle {
-//     font-size: 1.09rem;
-//     color: #2b9ad4;
-//     font-weight: 700;
-//     margin-bottom: 6px;
-//   }
-// }
-// .thankYou {
-//   text-align: left;
-//   font-size: 1.45rem;
-//   color: #2b9ad4;
-//   font-weight: 800;
-//   margin-top: 12px;
-//   margin-bottom: 2px;
-//   letter-spacing: 0.01em;
-// }
-// .footerRow {
-//   font-size: 1rem;
-//   text-align: left;
-//   color: #1291d0;
-//   border-top: 1px solid #eaeaea;
-//   padding-top: 8px;
-//   margin-top: 6px;
-//   div {
-//     margin-bottom: 2px;
-//   }
-//   b {
-//     color: #179ae1;
-//     font-weight: 700;
-//   }
+//   position: absolute; right: 14px; top: 14px;
+//   border: none; background: transparent; cursor: pointer;
+//   color: #aaa; font-size: 1.2rem;
+//   &:hover { color: #f00; }
 // }
 // .actionBar {
 //   display: flex;
@@ -186,131 +240,836 @@
 //     color: #fff;
 //   }
 // }
+// .headerRow {
+//   display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;
+//   .company { display: flex; align-items: flex-start; gap: 16px; }
+//   .logo { height: 64px; margin-right: 8px;}
+//   .compName { font-size: 2rem; font-weight: 700; color: #1291d0; letter-spacing: 0.03em;}
+//   .compTagline { font-size: 1.1rem; color: #179ae1; font-weight: 500;}
+//   .compAddr { color: #0b7ca7; font-size: 0.95rem;}
+//   .qmeta { text-align: right; color: #333; font-size: 1.05rem;}
+// }
+// .clientRow {
+//   display: flex; justify-content: space-between; align-items: flex-start;
+//   margin: 10px 0 10px 0; font-size: 1.05rem;
+//   >div:first-child { color: #353535; font-weight: 600;}
+//   >div:last-child { font-size: 1.2rem; font-weight: 700; color: #353535;}
+// }
+// .detailsTable {
+//   width: 100%;
+//   border-collapse: collapse;
+//   margin: 14px 0 10px 0;
+//   th, td { padding: 7px 10px; border: 1px solid #eee; }
+//   th { background: #f6faff; font-size: 1.07rem; color: #0090d0; font-weight: 700; }
+//   td { font-size: 1.06rem;}
+//   tfoot td { background: #fcf9f3; font-size: 1.06rem;}
+// }
+// .invLabel {
+//   display: inline-block;
+//   margin-top: 2px;
+//   margin-right: 8px;
+//   color: #179ae1;
+//   font-size: 0.96em;
+//   font-weight: 600;
+// }
+// .paymentSection {
+//   margin: 10px 0 8px 0;
+//   background: #f3f7fd;
+//   border-radius: 7px;
+//   padding: 10px 14px;
+//   font-size: 1rem;
+//   color: #2191ce;
+// }
+// .remarksRow {
+//   margin-bottom: 8px;
+//   font-size: 1.05rem;
+//   color: #0d5967;
+//   font-weight: 500;
+// }
+// .bottomRow {
+//   display: flex; gap: 28px; margin: 20px 0 4px 0; justify-content: space-between;
+//   .bankDetails, .tncDetails { background: #f6faff; border-radius: 8px; padding: 14px 20px; flex: 1; min-width: 210px;}
+//   .sectionTitle { font-size: 1.09rem; color: #1c7aaf; font-weight: 700; margin-bottom: 7px;}
+// }
+// .thankYou {
+//   text-align: left;
+//   font-size: 2rem;
+//   color: #1291d0;
+//   font-weight: 700;
+//   margin-top: 12px; margin-bottom: 2px;
+//   letter-spacing: 0.02em;
+// }
+// .footerRow {
+//   font-size: 1rem;
+//   text-align: left;
+//   color: #1c7aaf;
+//   border-top: 1px solid #eee;
+//   padding-top: 10px;
+//   margin-top: 8px;
+//   div {
+//     margin-bottom: 2px;
+//   }
+//   b {
+//     color: #0890a5;
+//     font-weight: 700;
+//   }
+// }
+
+// InvoicePreview.module.scss
+
 .previewBackdrop {
   position: fixed;
-  left: 0; top: 0; width: 100vw;
-  background: rgba(36,36,36,0.23); z-index: 9999;
-  display: flex; 
-  // align-items: center;
-   justify-content: center;
-   overflow-y: auto;
-  font-family: 'Arial', 'Segoe UI', Arial, sans-serif;
-}
-.previewBox {  background: #fff;
-  border-radius: 16px;
-  padding: 28px 30px 18px 30px;
-  max-width: 740px;
-  width: 100%;
-  min-width: 370px;
-  box-shadow: 0 6px 38px 0 #2223;
-  position: relative;
-  animation: pop 0.18s cubic-bezier(.42,1.25,.54,1.03);
-}
-@keyframes pop {
-  from { transform: scale(0.95); opacity: 0.5;}
-  to { transform: scale(1); opacity: 1;}
-}
-.closeBtn {
-  position: absolute; right: 14px; top: 14px;
-  border: none; background: transparent; cursor: pointer;
-  color: #aaa; font-size: 1.2rem;
-  &:hover { color: #f00; }
-}
-.actionBar {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
-.actionBtn {
-  background: #f6faff;
-  border: 1px solid #e5e7eb;
-  color: #179ae1;
-  border-radius: 6px;
-  font-size: 1rem;
-  padding: 7px 16px;
-  font-weight: 700;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.previewBox {
+  background: white;
+  width: 95vw;
+  height: 95vh;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.controlBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  flex-shrink: 0;
+}
+
+.leftControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zoomBtn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+
   &:hover {
-    background: #1291d0;
-    color: #fff;
+    background: #0056b3;
   }
 }
-.headerRow {
-  display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;
-  .company { display: flex; align-items: flex-start; gap: 16px; }
-  .logo { height: 64px; margin-right: 8px;}
-  .compName { font-size: 2rem; font-weight: 700; color: #1291d0; letter-spacing: 0.03em;}
-  .compTagline { font-size: 1.1rem; color: #179ae1; font-weight: 500;}
-  .compAddr { color: #0b7ca7; font-size: 0.95rem;}
-  .qmeta { text-align: right; color: #333; font-size: 1.05rem;}
+
+.zoomLevel {
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: center;
 }
-.clientRow {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  margin: 10px 0 10px 0; font-size: 1.05rem;
-  >div:first-child { color: #353535; font-weight: 600;}
-  >div:last-child { font-size: 1.2rem; font-weight: 700; color: #353535;}
+
+.actionBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #1e7e34;
+  }
 }
-.detailsTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 14px 0 10px 0;
-  th, td { padding: 7px 10px; border: 1px solid #eee; }
-  th { background: #f6faff; font-size: 1.07rem; color: #0090d0; font-weight: 700; }
-  td { font-size: 1.06rem;}
-  tfoot td { background: #fcf9f3; font-size: 1.06rem;}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  
+  &[data-status="sent"] {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  &[data-status="not-sent"] {
+    background: #f8d7da;
+    color: #721c24;
+  }
 }
-.invLabel {
-  display: inline-block;
-  margin-top: 2px;
-  margin-right: 8px;
-  color: #179ae1;
-  font-size: 0.96em;
-  font-weight: 600;
+
+.closeBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #c82333;
+  }
 }
-.paymentSection {
-  margin: 10px 0 8px 0;
-  background: #f3f7fd;
-  border-radius: 7px;
-  padding: 10px 14px;
-  font-size: 1rem;
-  color: #2191ce;
+
+.invoiceContainer {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  // padding: 20px;
+  background: #f5f5f5;
 }
-.remarksRow {
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-  color: #0d5967;
+
+.invoiceWrapper {
+  transition: transform 0.2s ease;
+  transform-origin: top center;
+}
+
+.invoicePage {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 50px 50px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.3;
+  color: #333;
+  max-width: 100%;
+  // A4 print styles
+  @media print {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 15mm;
+    box-shadow: none;
+    font-size: 10px;
+  }
+}
+
+// Header Section
+.invoiceHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.companySection {
+  flex: 1;
+}
+
+.logoSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logoPlaceholder {
+  width: 150px;
+  // height: 80px;
+  // background: #3498db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.logoIcon {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.companyInfo {
+  padding-top: 5px;
+}
+
+.brandName {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 2px;
+}
+
+.brandSubtitle {
+  font-size: 12px;
+  color: #666;
   font-weight: 500;
 }
-.bottomRow {
-  display: flex; gap: 28px; margin: 20px 0 4px 0; justify-content: space-between;
-  .bankDetails, .tncDetails { background: #f6faff; border-radius: 8px; padding: 14px 20px; flex: 1; min-width: 210px;}
-  .sectionTitle { font-size: 1.09rem; color: #1c7aaf; font-weight: 700; margin-bottom: 7px;}
+
+.companyDetails {
+  font-size: 16px;
+  line-height: 1.4;
+  
+  div {
+    margin-bottom: 3px;
+  }
 }
-.thankYou {
-  text-align: left;
-  font-size: 2rem;
-  color: #1291d0;
-  font-weight: 700;
-  margin-top: 12px; margin-bottom: 2px;
-  letter-spacing: 0.02em;
+
+.invoiceInfo {
+  flex: 0 0 300px;
+  text-align: right;
 }
-.footerRow {
-  font-size: 1rem;
-  text-align: left;
-  color: #1c7aaf;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-  margin-top: 8px;
+
+.taxInvoiceTitle {
+  // background: #3498db;
+  color: #3498db;
+  padding: 15px;
+  // border-radius: 8px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: left; 
+  border-bottom: 3px solid #3496dd;
+}
+
+.invoiceMetaTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  
+  td {
+    padding: 8px 12px;
+    border: 2px solid #3498db;
+    font-size: 11px;
+    
+    &.tableHeader {
+      background: #3498db;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+.preparedBy {
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+}
+
+// Items Table
+.itemsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  
+  th, td {
+    border: 2px solid #3498db;
+    padding: 8px;
+    text-align: left;
+    font-size: 11px;
+  }
+  
+  th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+    text-align: center; 
+  height: 10px;
+  padding: 0;
+  }
+  
+  td:first-child {
+    text-align: center;
+    width: 40px;
+  }
+  
+  td:nth-child(3), td:nth-child(4), td:nth-child(5) {
+    text-align: right;
+    width: 80px;
+  }
+}
+
+.descriptionCell {
+  min-width: 200px;
+  
   div {
     margin-bottom: 2px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-  b {
-    color: #0890a5;
-    font-weight: 700;
+}
+
+.emptyRow {
+  height: 35px;
+  
+  td {
+    border-left: 2px solid #3498db;
+    border-right: 2px solid #3498db;
+    border-bottom: 1px solid #e9ecef;
+  }
+}
+
+.thankYouRow {
+  .thankYouCell {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    padding: 15px;
+  }
+}
+
+// Totals Section
+.totalsSection {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.totalsTable {
+  width: 250px;
+  border-collapse: collapse;
+  
+  td {
+    padding: 8px 15px;
+    border: 2px solid #3498db;
+    font-size: 12px;
+    text-align: center;
+    &:first-child {
+      background: #f8f9fa;
+      font-weight: 500;
+    }
+    
+    &:last-child {
+      text-align: right;
+      width: 100px;
+    }
+  }
+  
+ 
+}
+thead{
+  height: 35px;
+  font-size: 20px;
+  th{
+    font-size: 14px !important;
+  }
+} .totalRow {
+    td {
+      background: #ffffffa5;
+      color: rgb(27, 126, 231);
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+  .blank{
+    border: 0px solid transparent !important;
+  }
+// Payments Section
+.paymentsSection {
+  margin-bottom: 20px;
+  
+  .sectionTitle {
+    color: #3498db;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .paymentsList {
+    margin: 0;
+    padding-left: 15px;
+    
+    li {
+      margin-bottom: 5px;
+      font-size: 11px;
+      line-height: 1.4;
+      
+      a {
+        color: #3498db;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Payment Link and QR Section
+.paymentLinkSection {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.paymentRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.paymentInfo {
+  flex: 1;
+}
+
+.scanToPay {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #3498db;
+}
+
+.paymentUrl {
+  font-size: 10px;
+  color: #666;
+  word-break: break-all;
+  text-decoration: none;
+  button{
+      font-size: 12px;
+  margin-bottom: 8px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 15px;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.qrCodeContainer {
+  flex-shrink: 0;
+}
+
+.qrCode {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+}
+
+// Bottom Section
+.bottomSection {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.paymentDetails, .termsConditions {
+  flex: 1;
+}
+
+.sectionTitle {
+  color: #3498db;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.paymentDetails {
+  div {
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+  
+  .contactNote {
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+  }
+}
+
+.termsConditions {
+  ul {
+    margin: 0;
+    padding-left: 15px;
+    
+    li {
+      margin-bottom: 5px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+  }
+}
+
+// Footer
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 2px solid #3498db;
+  font-size: 11px;
+  color: #666;
+  
+  .footerLeft, .footerCenter, .footerRight {
+    flex: 1;
+  }
+  
+  .footerCenter {
+    text-align: center;
+  }
+  
+  .footerRight {
+    text-align: right;
+  }
+}
+
+// Print Styles
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .previewBackdrop {
+    position: static !important;
+    background: none !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+  }
+  
+  .previewBox {
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+  
+  .controlBar {
+    display: none !important;
+  }
+  
+  .invoiceContainer {
+    padding: 0 !important;
+    background: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .invoiceWrapper {
+    transform: none !important;
+  }
+  
+  .invoicePage {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    box-shadow: none !important;
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    page-break-after: auto !important;
+    page-break-inside: avoid !important;
+    overflow: hidden !important;
+  }
+
+  // Compact header for print
+  .invoiceHeader {
+    margin-bottom: 15px !important;
+    
+    .logoSection {
+      margin-bottom: 10px !important;
+    }
+    
+    .logoPlaceholder {
+      width: 40px !important;
+      height: 50px !important;
+    }
+    
+    .brandName {
+      font-size: 18px !important;
+    }
+    
+    .taxInvoiceTitle {
+      font-size: 14px !important;
+      padding: 10px !important;
+    }
+  }
+
+  // Compact table for print
+  .itemsTable {
+    margin-bottom: 15px !important;
+    
+    th, td {
+      padding: 4px 6px !important;
+      font-size: 8px !important;
+      text-align: center !important;
+    }
+    
+    .emptyRow {
+      height: 20px !important;
+    }
+    
+    .thankYouRow .thankYouCell {
+      padding: 8px !important;
+    }
+  }
+
+  .invoiceMetaTable {
+    td {
+      padding: 4px 8px !important;
+      font-size: 9px !important;
+    }
+  }
+
+  // Compact totals
+  .totalsSection {
+    margin-bottom: 15px !important;
+  }
+
+  .totalsTable {
+    td {
+      padding: 4px 10px !important;
+      font-size: 10px !important;
+    }
+    
+    .totalRow td {
+      font-size: 11px !important;
+    }
+  }
+
+  // Compact payment section
+  .paymentsSection {
+    margin-bottom: 10px !important;
+    
+    .paymentsList li {
+      font-size: 8px !important;
+      margin-bottom: 2px !important;
+    }
+  }
+
+  .paymentLinkSection {
+    margin-bottom: 15px !important;
+    padding: 8px !important;
+    
+    .qrCode {
+      width: 60px !important;
+      height: 60px !important;
+    }
+    
+    .paymentUrl {
+      font-size: 8px !important;
+    }
+  }
+
+  // Compact bottom section
+  .bottomSection {
+    margin-bottom: 15px !important;
+    gap: 15px !important;
+  }
+
+  .sectionTitle {
+    font-size: 10px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .paymentDetails div {
+    font-size: 8px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .termsConditions ul li {
+    font-size: 8px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .footer {
+    font-size: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  // Hide elements that shouldn't print
+  .statusBadge,
+  .actionBtn,
+  .closeBtn,
+  .zoomBtn,
+  .zoomLevel {
+    display: none !important;
+  }
+
+  // Ensure single page
+  @page {
+    size: A4;
+    margin: 5mm;
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .previewBox {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .invoiceContainer {
+    padding: 10px;
+  }
+  
+  .invoicePage {
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+  
+  .invoiceHeader {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .invoiceInfo {
+    flex: none;
+  }
+  
+  .bottomSection {
+    flex-direction: column;
+    gap: 20px;
   }
 }
