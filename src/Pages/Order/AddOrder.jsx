@@ -4,9 +4,10 @@ import PRINT_PRICES from "../../printprices";
 import axios from "axios";
 import { useData } from "../../context/DataContext";
 import HeaderLinks from "../../Components/HeaderLinks";
-import { BASE_URL } from "../../api/constants"; // Adjust path as needed
+// import { BASE_URL } from "../../api/constants"; // Adjust path as needed
 import ContentStructure from "../../Layout/ContentStructure";
 // ---- Constants ----
+const BASE_URL = "https://api.alankardigitalhub.in/api";
 const links = [
   { to: "/orders/new", label: "Add New Order" },
   { to: "/orders/ongoing", label: "On-goining Orders" },
