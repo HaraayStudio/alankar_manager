@@ -4,9 +4,9 @@ import { useData } from "../../context/DataContext";
 import ContentStructure from "../../Layout/ContentStructure";
 import PRINT_PRICES from "../../printprices";
 import axios from "axios";
-import { BASE_URL } from "../../api/constants.js";
+// import { BASE_URL } from "../../api/constants.js";
 import SmartDescriptionInput from "../../Components/SmartDescriptionInput";
-
+const BASE_URL = "https://api.alankardigitalhub.in/api";
 const links = [
   { to: "/orders/new", label: "Add New Order" },
   { to: "/orders/ongoing", label: "On-goining Orders" },
